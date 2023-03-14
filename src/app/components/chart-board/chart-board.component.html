@@ -1,0 +1,24 @@
+<div class="form">
+  <mat-form-field>
+    <mat-label>Start date</mat-label>
+    <input matInput [(ngModel)]="startDate" [matDatepicker]="picker">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>End date</mat-label>
+    <input matInput [(ngModel)]="endDate" [matDatepicker]="picker2">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2></mat-datepicker>
+  </mat-form-field>
+
+  <button (click)="selectionChanged()" mat-raised-button>Apply filters</button>
+</div>
+
+<div class="charts">
+  <app-expense-chart class="e-chart" *ngIf="!isLoading" [displayingTransactions]="selectedTransactions" [allCategories]="allCategories"></app-expense-chart>
+  <app-donut-chart class="d-chart" *ngIf="!isLoading" [displayingTransactions]="selectedTransactions" [allCategories]="allCategories"></app-donut-chart>
+</div>

@@ -3,16 +3,53 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AddTransactionComponent } from './components/add-transaction/add-transaction.component';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from "@angular/material/button";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {DateAdapter, MatNativeDateModule, MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
+import {FormsModule} from "@angular/forms";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import { TransactionsComponent } from './components/transactions/transactions.component';
+import {MatTableModule} from "@angular/material/table";
+import {NgChartsModule} from "ng2-charts";
+import { ExpenseChartComponent } from './components/expense-chart/expense-chart.component';
+import { ChartBoardComponent } from './components/chart-board/chart-board.component';
+import { DonutChartComponent } from './components/donut-chart/donut-chart.component';
+import { MainComponent } from './components/main/main.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddTransactionComponent,
+    TransactionsComponent,
+    ExpenseChartComponent,
+    ChartBoardComponent,
+    DonutChartComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatOptionModule,
+    MatSelectModule,
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatTableModule,
+    NgChartsModule
   ],
-  providers: [],
+  providers: [
+    HttpClient,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

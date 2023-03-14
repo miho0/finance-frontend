@@ -1,0 +1,33 @@
+<mat-form-field>
+  <mat-label>Name</mat-label>
+  <input [(ngModel)]="transaction.name" type="text" matInput>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Category</mat-label>
+  <mat-select [(ngModel)]="transaction.category">
+    <mat-option *ngFor="let cat of allCategories" [value]="cat.name">
+      {{cat.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Amount</mat-label>
+  <input [(ngModel)]="transaction.amount" type="number" matInput>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Description</mat-label>
+  <input [(ngModel)]="transaction.description" type="text" matInput>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Date</mat-label>
+  <input matInput [matDatepicker]="picker">
+  <mat-hint>MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+<button (click)="buttonPressed()" mat-raised-button>Confirm</button>

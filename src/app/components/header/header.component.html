@@ -1,0 +1,7 @@
+<nav mat-tab-nav-bar>
+  <a *ngFor="let route of routes"
+     mat-tab-link [active]="route.active"
+     routerLink="{{route.route}}"
+     (click)="changeActive(route)">{{route.name}}</a>
+</nav>
+<br>

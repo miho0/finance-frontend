@@ -1,33 +1,36 @@
-<mat-form-field>
-  <mat-label>Name</mat-label>
-  <input [(ngModel)]="transaction.name" type="text" matInput>
-</mat-form-field>
+<form class="transaction-form">
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input [(ngModel)]="transaction.name" type="text" matInput name="name">
+  </mat-form-field>
 
-<mat-form-field>
+  <mat-form-field appearance="fill">
   <mat-label>Category</mat-label>
-  <mat-select [(ngModel)]="transaction.category">
+  <mat-select [(ngModel)]="transaction.category" name="category">
     <mat-option *ngFor="let cat of allCategories" [value]="cat.name">
       {{cat.name}}
     </mat-option>
   </mat-select>
 </mat-form-field>
 
-<mat-form-field>
-  <mat-label>Amount</mat-label>
-  <input [(ngModel)]="transaction.amount" type="number" matInput>
-</mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Amount</mat-label>
+    <input [(ngModel)]="transaction.amount" type="number" matInput name="amount">
+    <span matSuffix>$</span>
+  </mat-form-field>
 
-<mat-form-field>
-  <mat-label>Description</mat-label>
-  <input [(ngModel)]="transaction.description" type="text" matInput>
-</mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Description</mat-label>
+    <textarea [(ngModel)]="transaction.description" matInput matTextareaAutosize matAutosizeMinRows="2" name="description"></textarea>
+  </mat-form-field>
 
-<mat-form-field>
-  <mat-label>Date</mat-label>
-  <input matInput [matDatepicker]="picker">
-  <mat-hint>MM/DD/YYYY</mat-hint>
-  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
 
-<button (click)="buttonPressed()" mat-raised-button>Confirm</button>
+  <mat-form-field appearance="fill">
+    <mat-label>Date</mat-label>
+    <input matInput [matDatepicker]="picker" name="date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <button (click)="buttonPressed()" mat-raised-button color="primary">Confirm</button>
+</form>

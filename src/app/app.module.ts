@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from "@angular/material/button";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import {DateAdapter, MatNativeDateModule, MatOptionModule} from "@angular/material/core";
+import {DateAdapter, MatNativeDateModule, MatOptionModule, MatRippleModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
 import {FormsModule} from "@angular/forms";
 import {MatDatepickerModule} from "@angular/material/datepicker";
@@ -20,6 +20,13 @@ import { ExpenseChartComponent } from './components/expense-chart/expense-chart.
 import { ChartBoardComponent } from './components/chart-board/chart-board.component';
 import { DonutChartComponent } from './components/donut-chart/donut-chart.component';
 import { MainComponent } from './components/main/main.component';
+import { HeaderComponent } from './components/header/header.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatTabsModule} from "@angular/material/tabs";
+import { CategoriesComponent } from './components/categories/categories.component';
+import { CategoryComponent } from './components/category/category.component';
+import { LineChartComponent } from './components/line-chart/line-chart.component';
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -30,23 +37,31 @@ import { MainComponent } from './components/main/main.component';
     ChartBoardComponent,
     DonutChartComponent,
     MainComponent,
+    HeaderComponent,
+    CategoriesComponent,
+    CategoryComponent,
+    LineChartComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    HttpClientModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatOptionModule,
-    MatSelectModule,
-    FormsModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatTableModule,
-    NgChartsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        HttpClientModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatOptionModule,
+        MatSelectModule,
+        FormsModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatTableModule,
+        NgChartsModule,
+        MatToolbarModule,
+        MatTabsModule,
+        MatRippleModule,
+        MatIconModule
+    ],
   providers: [
     HttpClient,
   ],

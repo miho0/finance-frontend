@@ -3,6 +3,8 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Category} from "../interfaces/Category";
 import {Transaction} from "../interfaces/Transaction";
+import {CategoryExtra} from "../interfaces/CategoryExtra";
+import {Month} from "../interfaces/Month";
 
 @Injectable({
   providedIn: 'root'
@@ -25,9 +27,21 @@ export class BackendService {
     return this.http.get<Transaction[]>(this.link + "Entry/GetAll");
   }
 
+  public getAllCategoriesExtra = (): Observable<CategoryExtra[]> => {
+    return this.http.get<CategoryExtra[]>(this.link + "Category/GetExtra");
+  }
+
   public getAllTransactionsFiltered = (start?: Date, end?: Date): Observable<Transaction[]> => {
     if (!start) start = new Date(2000, 1, 1);
     return this.http.get<Transaction[]>(this.link + "Entry/GetFiltered/" + this.formatDate(start) + (end? '/' +  this.formatDate(end) : ''));
+  }
+
+  public getTransactionsByCategory(cat: string): Observable<Transaction[]> {
+    return this.http.get<Transaction[]>(this.link + "Entry/GetByCategory?catName=" + cat);
+  }
+
+  public getTransactionsByMonth(cat: string): Observable<Month[]> {
+    return this.http.get<Month[]>(this.link + "Entry/GetByMonth?catName=" + cat);
   }
 
   public addTransaction = (transaction: Transaction) : void => {

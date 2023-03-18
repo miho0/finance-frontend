@@ -21,7 +21,9 @@ export class HeaderComponent implements OnInit {
     {name: "HOME", route: "/", active: true},
     {name: "CATEGORIES", route: "/categories", active: false},
     {name: "TRANSACTIONS", route: "/transactions", active: false},
-    {name: "STATISTICS", route: "/charts", active: false}
+    {name: "STATISTICS", route: "/charts", active: false},
+    {name: "LOGIN", route: "/login", active: false},
+    {name: "REGISTER", route: "/register", active: false},
   ]
 
   ngOnInit(): void {

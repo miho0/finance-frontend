@@ -15,41 +15,45 @@
     <mat-datepicker #picker2></mat-datepicker>
   </mat-form-field>
 
-  <button (click)="selectionChanged()" mat-raised-button>Apply filters</button>
+  <div class="btn-group">
+    <button (click)="selectionChanged()" mat-raised-button>Apply Filters</button>
+    <button (click)="selectionChanged()" mat-raised-button>Add New Transaction</button>
+  </div>
 </div>
 
-<input matInput (keyup)="applyFilter($event)" placeholder="Search">
+<div class="table">
+  <input matInput (keyup)="applyFilter($event)" placeholder="Search" class="table-search-input">
+  <table *ngIf="transactions" #transactionTable mat-table [dataSource]="transactions" class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
 
-<table *ngIf="transactions" #transactionTable mat-table [dataSource]="transactions" class="mat-elevation-z8">
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-  </ng-container>
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef> Category </th>
+      <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="category">
-    <th mat-header-cell *matHeaderCellDef> Category </th>
-    <td mat-cell *matCellDef="let element"> {{element.category}} </td>
-  </ng-container>
+    <ng-container matColumnDef="amount">
+      <th mat-header-cell *matHeaderCellDef> Amount </th>
+      <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="amount">
-    <th mat-header-cell *matHeaderCellDef> Amount </th>
-    <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
-  </ng-container>
+    <ng-container matColumnDef="time">
+      <th mat-header-cell *matHeaderCellDef> Time </th>
+      <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="time">
-    <th mat-header-cell *matHeaderCellDef> Time </th>
-    <td mat-cell *matCellDef="let element"> {{element.time}} </td>
-  </ng-container>
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> Delete </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button (click)="deleteTransaction(element)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
 
-  <ng-container matColumnDef="delete">
-    <th mat-header-cell *matHeaderCellDef> Delete </th>
-    <td mat-cell *matCellDef="let element">
-      <button mat-icon-button (click)="deleteTransaction(element)">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
-</table>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
+  </table>
+</div>

@@ -5,6 +5,7 @@ import {Category} from "../interfaces/Category";
 import {Transaction} from "../interfaces/Transaction";
 import {CategoryExtra} from "../interfaces/CategoryExtra";
 import {Month} from "../interfaces/Month";
+import {RegisterDto} from "../interfaces/RegisterDto";
 
 @Injectable({
   providedIn: 'root'
@@ -47,5 +48,10 @@ export class BackendService {
   public addTransaction = (transaction: Transaction) : void => {
     this.http.post(this.link + "Entry/Insert", transaction).subscribe();
   }
+
+  public register = (registerInfo: RegisterDto) => {
+    return this.http.post(this.link + "User/Register", registerInfo);
+  }
+
 }
 

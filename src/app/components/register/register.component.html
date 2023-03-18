@@ -1,0 +1,23 @@
+<form class="transaction-form">
+  <mat-form-field appearance="fill">
+    <mat-label>Username</mat-label>
+    <input [(ngModel)]="registerInfo.username" type="text" matInput name="name">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input [(ngModel)]="registerInfo.password" type="password" matInput name="name">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Repeat Password</mat-label>
+    <input [(ngModel)]="repeatPass" type="password" matInput name="name">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>E-mail</mat-label>
+    <input [(ngModel)]="registerInfo.email" type="emal" matInput name="name">
+  </mat-form-field>
+
+  <button (click)="buttonPressed()" mat-raised-button color="primary">Confirm</button>
+</form>

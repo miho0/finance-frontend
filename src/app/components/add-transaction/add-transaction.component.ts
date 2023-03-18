@@ -7,7 +7,7 @@ import {DataService} from "../../services/data.service";
 @Component({
   selector: 'app-add-transaction',
   templateUrl: './add-transaction.component.html',
-  styleUrls: ['./add-transaction.component.scss']
+  styleUrls: ['./add-transaction.component.scss', '../../forms.scss']
 })
 export class AddTransactionComponent implements OnInit {
 

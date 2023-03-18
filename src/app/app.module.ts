@@ -27,6 +27,9 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { CategoryComponent } from './components/category/category.component';
 import { LineChartComponent } from './components/line-chart/line-chart.component';
 import {MatIconModule} from "@angular/material/icon";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,8 @@ import {MatIconModule} from "@angular/material/icon";
     CategoriesComponent,
     CategoryComponent,
     LineChartComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
     imports: [
         BrowserModule,
@@ -60,7 +65,8 @@ import {MatIconModule} from "@angular/material/icon";
         MatToolbarModule,
         MatTabsModule,
         MatRippleModule,
-        MatIconModule
+        MatIconModule,
+        MatButtonToggleModule
     ],
   providers: [
     HttpClient,

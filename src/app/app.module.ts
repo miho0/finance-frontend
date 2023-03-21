@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddTransactionComponent } from './components/add-transaction/add-transaction.component';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpClientModule, HttpClientXsrfModule} from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from "@angular/material/button";
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -30,6 +30,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AddCategoryComponent } from './components/add-category/add-category.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { RegisterComponent } from './components/register/register.component';
     LineChartComponent,
     LoginComponent,
     RegisterComponent,
+    AddCategoryComponent,
   ],
     imports: [
         BrowserModule,
@@ -66,7 +68,7 @@ import { RegisterComponent } from './components/register/register.component';
         MatTabsModule,
         MatRippleModule,
         MatIconModule,
-        MatButtonToggleModule
+        MatButtonToggleModule,
     ],
   providers: [
     HttpClient,

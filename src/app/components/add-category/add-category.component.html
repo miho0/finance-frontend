@@ -1,0 +1,22 @@
+<form class="transaction-form">
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input [(ngModel)]="category.name" type="text" matInput name="name">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Description</mat-label>
+    <input [(ngModel)]="category.description" type="text" matInput name="description">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Priority</mat-label>
+    <input [(ngModel)]="category.priority" type="number" matInput name="priority">
+  </mat-form-field>
+
+  <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+  <div class="success-message" *ngIf="successMessage">{{ successMessage }}</div>
+
+  <button (click)="buttonPressed()" mat-raised-button color="primary">Confirm</button>
+</form>

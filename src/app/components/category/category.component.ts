@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {BackendService} from "../../services/backend.service";
+import {Category} from "../../interfaces/Category";
 
 @Component({
   selector: 'app-category',
@@ -12,6 +13,8 @@ export class CategoryComponent implements OnInit {
   public name: string = "";
   public labels: string[] = [];
   public chartData: number[] = [];
+
+  public category?: Category;
 
   constructor(private route: ActivatedRoute, private backend: BackendService) {
   }
@@ -26,14 +29,21 @@ export class CategoryComponent implements OnInit {
         this.labels = [];
         res.forEach(month => {
           this.labels.push(month.month);
-          this.chartData.push(month.amount)
+          this.chartData.push(month.amount);
         })
       },
     (err) => {
       console.log(err)
-    }
-    )
+    })
 
+    this.backend.getCategoryByName(this.name).subscribe(
+      (res) => {
+        this.category = res;
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
   }
 
 }

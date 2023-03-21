@@ -1,1 +1,13 @@
-<p>login works!</p>
+<form class="transaction-form">
+  <mat-form-field appearance="fill">
+    <mat-label>Username</mat-label>
+    <input [(ngModel)]="loginInfo.username" type="text" matInput name="name">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input [(ngModel)]="loginInfo.password" type="password" matInput name="name">
+  </mat-form-field>
+
+  <button (click)="buttonPressed()" mat-raised-button color="primary">Confirm</button>
+</form>

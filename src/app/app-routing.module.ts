@@ -9,14 +9,16 @@ import {CategoriesComponent} from "./components/categories/categories.component"
 import {CategoryComponent} from "./components/category/category.component";
 import {LoginComponent} from "./components/login/login.component";
 import {RegisterComponent} from "./components/register/register.component";
+import {AddCategoryComponent} from "./components/add-category/add-category.component";
 
 const routes: Routes = [
   {path: '', component: MainComponent},
   {path: 'charts', component: ChartBoardComponent},
   {path: 'transactions', component: TransactionsComponent},
   {path: 'categories', component: CategoriesComponent},
-  {path: 'modify/add-transaction', component: AddTransactionComponent},
+  {path: 'transactions/add', component: AddTransactionComponent},
   {path: 'categories/:name', component: CategoryComponent},
+  {path: 'category/add', component: AddCategoryComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent}
 ];

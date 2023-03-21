@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {BackendService} from "../../services/backend.service";
 import {CategoryExtra} from "../../interfaces/CategoryExtra";
 import {Router} from "@angular/router";
+import {Category} from "../../interfaces/Category";
 
 @Component({
   selector: 'app-categories',
@@ -11,7 +12,7 @@ import {Router} from "@angular/router";
 export class CategoriesComponent implements OnInit {
 
   public allCategories: CategoryExtra[] = [];
-  displayedColumns: string[] = ['name', 'total', 'percentage', 'numTransactions'];
+  displayedColumns: string[] = ['name', 'total', 'percentage', 'numTransactions', 'delete'];
 
   constructor(private backend: BackendService, private router: Router) { }
 
@@ -34,5 +35,10 @@ export class CategoriesComponent implements OnInit {
   public goToCategory(name: any) {
     console.log(name.name)
     this.router.navigate([`categories/${name.name}`]);
+  }
+
+  public deleteCategory = (element: any, event: Event) => {
+    event.stopPropagation();
+    this.backend.deleteCategory(element.name);
   }
 }

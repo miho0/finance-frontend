@@ -1,7 +1,18 @@
-<nav mat-tab-nav-bar>
-  <a *ngFor="let route of routes"
-     mat-tab-link [active]="route.active"
-     routerLink="{{route.route}}"
-     (click)="changeActive(route)">{{route.name}}</a>
+<nav mat-tab-nav-bar class="nav">
+  <div class="nav-left">
+  <a *ngFor="let route of leftRoutes">
+    <a mat-tab-link [active]="route.active"
+       routerLink="{{route.route}}"
+       (click)="changeActive(route)"
+       *ngIf="!route.condition || route.condition()"
+       [ngClass]="{'mat-tab-label-active': route.active}">{{route.name}}</a></a>
+  </div>
+  <div class="nav-right">
+    <a *ngFor="let route of rightRoutes">
+      <a mat-tab-link [active]="route.active"
+         routerLink="{{route.route}}"
+         (click)="changeActive(route)"
+         *ngIf="!route.condition || route.condition()"
+         [ngClass]="{'mat-tab-label-active': route.active}">{{route.name}}</a></a>
+  </div>
 </nav>
-<br>
